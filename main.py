@@ -5,11 +5,13 @@ API_Key = "AIzaSyCPO5ZKErxFr4aFYQK5L7WkaTnq5G4A-WY"
 baseURL = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url="
 
 
-def get_pagespeed(page_url: str, strategy: str):
+def get_pagespeed(page_url: str, strategy: str, category: str = None):
     """
     :param page_url: full url of page
     :param strategy: "desktop": Fetch and analyze the URL for desktop browsers
     "mobile": Fetch and analyze the URL for mobile devices
+    :param category: A Lighthouse category to run; if none are given, only Performance category will be run
+    Acceptable values are:"accessibility","best-practices","performance","pwa","seo"
     :return:
     """
     response_url = baseURL + page_url + '&key=' + API_Key + '&strategy=' + strategy
